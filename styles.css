@@ -1,0 +1,212 @@
+/* styles.css
+ * Estilos SEPARADOS del HTML.
+ * Registro de Usuario — Validación con Zod (Módulo III).
+ */
+
+:root {
+  --primario: #0ea5e9;
+  --primario-osc: #0369a1;
+  --error: #dc2626;
+  --ok: #16a34a;
+  --warn: #f59e0b;
+  --texto: #0f172a;
+  --gris: #64748b;
+  --borde: #cbd5e1;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  background: linear-gradient(135deg, #e0f2fe, #f1f5f9);
+  color: var(--texto);
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 32px 16px;
+}
+
+.container {
+  max-width: 440px;
+  width: 100%;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  margin: 0 0 6px;
+  font-size: 1.7rem;
+}
+
+header p {
+  margin: 0;
+  color: var(--gris);
+}
+
+form {
+  background: #fff;
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+.campo {
+  margin-bottom: 18px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+input {
+  width: 100%;
+  padding: 11px 12px;
+  border: 1px solid var(--borde);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--primario);
+  box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.15);
+}
+
+/* Estados de validación por campo */
+.campo.invalido input {
+  border-color: var(--error);
+}
+
+.campo.valido input {
+  border-color: var(--ok);
+}
+
+.error {
+  display: block;
+  color: var(--error);
+  font-size: 0.82rem;
+  margin-top: 5px;
+  min-height: 1em;
+}
+
+/* Campo de contraseña con botón mostrar/ocultar */
+.password-wrap {
+  position: relative;
+}
+
+.password-wrap input {
+  padding-right: 44px;
+}
+
+.toggle-pass {
+  position: absolute;
+  top: 50%;
+  right: 6px;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 4px 6px;
+  width: auto;
+}
+
+/* Medidor de fuerza de la contraseña */
+.fuerza {
+  height: 6px;
+  background: #f1f5f9;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-top: 8px;
+}
+
+.fuerza-barra {
+  height: 100%;
+  width: 0%;
+  border-radius: 999px;
+  transition: width 0.25s ease, background 0.25s ease;
+}
+
+.fuerza-barra.debil {
+  width: 33%;
+  background: var(--error);
+}
+
+.fuerza-barra.media {
+  width: 66%;
+  background: var(--warn);
+}
+
+.fuerza-barra.fuerte {
+  width: 100%;
+  background: var(--ok);
+}
+
+button[type="submit"] {
+  width: 100%;
+  padding: 13px;
+  border: none;
+  border-radius: 8px;
+  background: var(--primario);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button[type="submit"]:hover {
+  background: var(--primario-osc);
+}
+
+/* Resumen general de errores */
+.errors-general {
+  color: var(--error);
+  font-size: 0.88rem;
+  text-align: center;
+  min-height: 1em;
+  margin: 12px 0 0;
+}
+
+/* Mensaje de resultado */
+.resultado {
+  margin-top: 14px;
+  padding: 16px;
+  border-radius: 12px;
+  font-size: 0.95rem;
+  display: none;
+}
+
+.resultado.ok {
+  display: block;
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #86efac;
+}
+
+.resultado ul {
+  margin: 8px 0 0;
+  padding-left: 20px;
+}
+
+footer {
+  text-align: center;
+  color: var(--gris);
+  font-size: 0.85rem;
+  margin-top: 20px;
+}
+
+footer a {
+  color: var(--primario-osc);
+}
