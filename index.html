@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <title>🛡️ Registro de Usuario — Validación con Zod</title>
+    <!-- Zod por CDN (build UMD: expone window.Zod), como en el gist del sensei -->
+    <script src="https://cdn.jsdelivr.net/npm/zod@3.21.4/lib/index.umd.min.js"></script>
+    <!-- Estilos SEPARADOS -->
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>🛡️ Registro de Usuario</h1>
+        <p>Validación de formularios con Zod — DEV.F Módulo III</p>
+      </header>
+
+      <!-- novalidate: usamos nuestra validación con Zod, no la nativa -->
+      <form id="registerForm" novalidate>
+        <div class="campo">
+          <label for="name">Nombre</label>
+          <input type="text" id="name" name="name" placeholder="Tu nombre" />
+          <small class="error" id="error-name"></small>
+        </div>
+
+        <div class="campo">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" placeholder="tu@correo.com" />
+          <small class="error" id="error-email"></small>
+        </div>
+
+        <div class="campo">
+          <label for="password">Contraseña</label>
+          <div class="password-wrap">
+            <input type="password" id="password" name="password" placeholder="Mínimo 6 caracteres" />
+            <button type="button" class="toggle-pass" id="togglePass" aria-label="Mostrar u ocultar contraseña">👁️</button>
+          </div>
+          <!-- Medidor de fuerza (extra) -->
+          <div class="fuerza" id="fuerza"><div class="fuerza-barra" id="fuerzaBarra"></div></div>
+          <small class="error" id="error-password"></small>
+        </div>
+
+        <button type="submit">Registrar</button>
+      </form>
+
+      <!-- Resumen general -->
+      <p id="errors" class="errors-general"></p>
+      <div id="resultado" class="resultado"></div>
+
+      <footer>
+        Código fuente en
+        <a
+          href="https://github.com/Don-Riko/DEV.F-EXT_FRONTEND-ModuloIII_Formularios-Zod-"
+          target="_blank"
+          rel="noopener"
+          >GitHub</a
+        >. Base del gist del sensei.
+      </footer>
+    </div>
+
+    <!-- JavaScript SEPARADO en su propio archivo -->
+    <script src="src/validacion.js?v=1"></script>
+  </body>
+</html>
