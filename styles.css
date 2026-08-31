@@ -124,8 +124,8 @@ input:focus {
 
 /* Medidor de fuerza de la contraseña */
 .fuerza {
-  height: 6px;
-  background: #f1f5f9;
+  height: 8px;
+  background: #e2e8f0;
   border-radius: 999px;
   overflow: hidden;
   margin-top: 8px;
@@ -153,11 +153,12 @@ input:focus {
   background: var(--ok);
 }
 
-/* Nivel "super fuerte": azul, con brillo, cuando la contraseña es muy robusta */
+/* Nivel "super fuerte": azul, con brillo, cuando la contraseña es muy robusta.
+   Usamos !important para que gane sobre cualquier otra clase de nivel. */
 .fuerza-barra.superfuerte {
-  width: 100%;
-  background: var(--primario);
-  box-shadow: 0 0 8px rgba(14, 165, 233, 0.7);
+  width: 100% !important;
+  background: #2563eb !important;
+  box-shadow: 0 0 8px rgba(37, 99, 235, 0.8);
 }
 
 /* Etiqueta textual del nivel de fuerza */
