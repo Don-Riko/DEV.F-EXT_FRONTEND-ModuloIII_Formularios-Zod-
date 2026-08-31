@@ -139,19 +139,39 @@ input:focus {
 }
 
 .fuerza-barra.debil {
-  width: 33%;
+  width: 25%;
   background: var(--error);
 }
 
 .fuerza-barra.media {
-  width: 66%;
+  width: 50%;
   background: var(--warn);
 }
 
 .fuerza-barra.fuerte {
-  width: 100%;
+  width: 75%;
   background: var(--ok);
 }
+
+/* Nivel "super fuerte": azul, con brillo, cuando la contraseña es muy robusta */
+.fuerza-barra.superfuerte {
+  width: 100%;
+  background: var(--primario);
+  box-shadow: 0 0 8px rgba(14, 165, 233, 0.7);
+}
+
+/* Etiqueta textual del nivel de fuerza */
+.fuerza-label {
+  display: block;
+  font-size: 0.78rem;
+  margin-top: 4px;
+  font-weight: 600;
+  min-height: 1em;
+}
+.fuerza-label.debil { color: var(--error); }
+.fuerza-label.media { color: var(--warn); }
+.fuerza-label.fuerte { color: var(--ok); }
+.fuerza-label.superfuerte { color: var(--primario-osc); }
 
 button[type="submit"] {
   width: 100%;
